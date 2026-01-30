@@ -24,6 +24,9 @@ RUN wget https://fr.wordpress.org/wordpress-6.1-fr_FR.tar.gz \
     && tar -xzf wordpress-6.1-fr_FR.tar.gz \
     && rm wordpress-6.1-fr_FR.tar.gz
 
+# Copier WordPress dans /tmp aussi pour l'initialisation du bind mount
+RUN cp -r /var/www/wordpress /tmp/wordpress
+
 RUN chown -R www-data:www-data /var/www/wordpress
 
 RUN mkdir -p /tools

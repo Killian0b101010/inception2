@@ -6,6 +6,14 @@ WP_PATH="/var/www/wordpress"
 
 echo "Starting WordPress entrypoint..."
 
+# Initialiser le répertoire WordPress s'il est vide
+if [ ! -f "$WP_PATH/wp-config.php" ] && [ ! -f "$WP_PATH/index.php" ]; then
+    echo "Initializing WordPress directory from image..."
+    # Copier WordPress depuis une copie temporaire
+    cp -r /tmp/wordpress/* "$WP_PATH/" 2>/dev/null || true
+    chown -R www-data:www-data "$WP_PATH"
+fi
+
 echo "Waiting for MariaDB to be ready..."
 for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
     if mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} -h ${MYSQL_HOST} -P ${MYSQL_PORT} -e "SELECT 1" > /dev/null 2>&1; then

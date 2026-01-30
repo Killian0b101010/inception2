@@ -2,6 +2,17 @@
 
 set -e
 
+MYSQL_DATA_DIR="/var/lib/mysql"
+
+echo "Starting MariaDB entrypoint..."
+
+# Initialiser le répertoire de données s'il est vide
+if [ ! -f "$MYSQL_DATA_DIR/mysql_upgrade_info" ]; then
+    echo "Initializing MariaDB data directory..."
+    mysql_install_db --user=mysql --datadir=$MYSQL_DATA_DIR
+    echo "Data directory initialized!"
+fi
+
 echo "Starting MariaDB daemon for initialization on port ${MYSQL_PORT}..."
 mysqld --user=mysql --port=${MYSQL_PORT} --skip-grant-tables &
 MYSQL_PID=$!
