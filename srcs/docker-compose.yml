@@ -59,3 +59,5 @@ volumes:
 networks:
   inception:
     driver: bridge
+
+##$ sudo docker exec -it wordpress wp option update home "https://kiteixei.42.fr:400" --path=/var/www/wordpress --allow-root && sudo docker exec -it wordpress wp option update siteurl "https://kiteixei.42.fr:400" --path=/var/www/wordpress --allow-root
