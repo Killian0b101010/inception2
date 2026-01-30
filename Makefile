@@ -4,7 +4,7 @@ COMPOSE = ./srcs/docker-compose.yml
 SRC_CONFIG = $(HOME)/.env
 DST_CONFIG = srcs/.env
 
-DATA_DIR = $(HOME)/data
+DATA_DIR = $(PWD)/data
 
 build : prepare
 	docker compose -f $(COMPOSE) up --build -d
