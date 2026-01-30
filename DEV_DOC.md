@@ -37,5 +37,5 @@ docker compose volume ls
 ## Sécurité et réseau
 
 NGINX est le seul point d’entrée.
-Le port 443 est le seul port exposé.
+Le port 6000 est le seul port exposé.
 TLSv1.2 ou TLSv1.3 est utilisé.

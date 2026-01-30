@@ -6,12 +6,10 @@ WP_PATH="/var/www/wordpress"
 
 echo "Starting WordPress entrypoint..."
 
-# Initialiser le répertoire WordPress s'il est vide
+
 if [ ! -f "$WP_PATH/wp-config.php" ] && [ ! -f "$WP_PATH/index.php" ]; then
     echo "Initializing WordPress directory from image..."
-    # Copier WordPress depuis une copie temporaire
     cp -r /tmp/wordpress/* "$WP_PATH/" 2>/dev/null || true
-    chown -R www-data:www-data "$WP_PATH"
 fi
 
 echo "Waiting for MariaDB to be ready..."

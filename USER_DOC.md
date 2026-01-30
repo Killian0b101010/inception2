@@ -11,7 +11,7 @@ La stack fournit les services suivants :
 - WordPress : application web accessible via un navigateur
 - MariaDB : base de données utilisée par WordPress
 
-L’accès à l’infrastructure se fait exclusivement via NGINX, sur le port 443, en utilisant
+L’accès à l’infrastructure se fait exclusivement via NGINX, sur le port 6000, en utilisant
 le protocole TLSv1.2 ou TLSv1.3.
 
 ## Démarrer et arrêter le projet
