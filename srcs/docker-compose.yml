@@ -30,7 +30,7 @@ services:
     container_name: nginx
     restart: always
     ports:
-      - "502:502"
+      - "500:500"
     depends_on:
       - wordpress
     env_file:
